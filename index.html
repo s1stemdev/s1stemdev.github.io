@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width-device-width, initial-scal=1.0">
+        <title>systemdev_</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://kit.fontawesome.com/a7e0000289.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/style.css">
+    </head>
+    <body>
+        <header class="header">
+            <a href="#" class="logo">systemdev_</a>
+            <nav class="navbar">
+                <a href="#home" class="active">Главная</a>
+                <a href="#about">Обо мне</a>
+                <a href="#contact">Контакты</a>
+
+            </nav>
+        </header>
+
+        <section class="home" id="home">
+            <div class="home-content">
+                <div class="im"><h3>Привет, я systemdev_</h3></div>
+                <div class="name"><h1>Николай Кирьянов</h1>
+                    <h3>Я <span class="whoami"></span></h3></div>
+                <div class="im"><p>Учусь программировать на Python, Java и C++
+                </p></div>
+                <div class="social-media">
+                    <a href="https://vk.com/sys_dev"><i class='bx bxl-vk' ></i></a>
+                    <a href="https://www.youtube.com/channel/UCY-q7vgacikUPlRyWm99TZQ"><i class='bx bxl-youtube' ></i></a>
+                    <a href="https://discord.gg/Qnkrx4K2Mm"><i class='bx bxl-discord-alt' ></i></a>
+                    <a href="https://www.reddit.com/user/systemdev_"><i class='bx bxl-reddit' ></i></a>
+                    <a href="https://github.com/s1stemdev"><i class='bx bxl-github' ></i></a>
+                </div>
+            </div>
+            <div class="home-img">
+                <img src="img/me2.png" alt="" width="512" height="512">
+            </div>
+
+    
+        </section>
+        <section class="about" id="about">
+            <div class="about-content">
+                <div class="about-logo">
+                    
+                    <h3>Информация</h3>
+                    <div class="info"><h1>Обо мне</h1></div>
+                    
+                </div>
+                <div class="content-box">
+                    <p>
+                        Меня зовут Николай Кирьянов. Я живу в городе Миассе Челябинской области. 
+                        Я очень увлекаюсь программированием и рисованием пиксельных текстур. 
+                        Я очень люблю музыку. Мне нравится играть на гитаре и домре. Я учу английсий язык. В данный момент у меня уровень B1
+                    </p>
+                    <br>
+                    <p>
+                        У меня есть свой игровой проект - <a href="https://shop.riven-dell.ru" class="rd-urd">RIVENDELL</a> Это Minecraft сервер, в который я вложил огромные усилия. Я поддерживаю его уже на протяжении двух лет.
+                        Я надеюсь, что он станет популярным и на нём будет играть много игроков.
+                    </p>
+                    <br>
+                    <p>
+                        Особое внимание надо уделить разработке плагинов на Bukkit. Это причина, по которой я начал учить язык Java. 
+                        Сейчас я уже достаточно хорошо разбираюсь в Bukkit API и написал несколько плагинов средней сложности.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="contact-content">
+                <h3>Связаться со мной</h3>
+                <h1>Контакты</h1>
+                <div class="right"><button class="button" role="button" onclick="location.href='mailto:kiryanovnikolay2000@gmail.com'">Электронная почта</button></div>
+                <div class="left"><button class="button" role="button" onclick="location.href='mailto:admin@riven-dell.ru'">Комерческая электронная почта</button>
+            </div></div>
+        </section>
+
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        
+        <script src="typed.js"></script>
+        <script>
+            var typed = new Typed(".whoami", {
+                strings: [
+                    "Bukkit разработчик",
+                    "Java разработчик",
+                    "Python разработчик",
+                    "Java разработчик"
+                ],
+                typeSpeed: 100,
+                backSpeed: 100,
+                backDelay: 1000,
+                loop: true,
+            });
+        </script>
+        <script>
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('header nav a');
+
+            window.onscroll = () => {
+                sections.forEach(sec => {
+                    let top = window.scrollY;
+                    let offset = sec.offsetTop - 150;
+                    let height = sec.offsetHeight;
+                    let id = sec.getAttribute('id');
+                    if(top >= offset && top < offset + height) {
+                        navLinks.forEach(links => {
+                            links.classList.remove('active');
+                            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                        });
+                    };
+                });
+            };
+        </script>
+
+        <script>
+            ScrollReveal({
+                reset: true,
+                distance: '80px',
+                duration: 2000,
+                delay: 60
+            });
+            ScrollReveal().reveal('.home-content, .about-logo, .contact-content, .header', { origin: 'top' });
+            ScrollReveal().reveal('.content-box, .im, .home-img, .left', { origin: 'left' });
+            ScrollReveal().reveal('', { origin: 'bottom' });
+            ScrollReveal().reveal('.name, .social-media, .info, .header, .right', { origin: 'right' });
+        </script>
+
+        <script>
+                    document.getElementById("cards").onmousemove = e => {
+        for(const card of document.getElementsByClassName("card")) {
+            const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        };
+        }
+        </script>
+
+    </body>
+
+</html>
